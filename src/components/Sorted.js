@@ -5,27 +5,32 @@ const users = [
     {
         id: 1,
         name: "Hugo Ulin Perez",
-        active: true
+        active: true,
+        sucursal: 'XXXXXXXXX'
     },
     {
         id: 2,
         name: "Nando Sanchez Rivera",
-        active: true
+        active: true,
+        sucursal: 'XXXXXXXXX'
     },
     {
         id: 3,
         name: "Brayant Frugtosa Lopez",
-        active: true
+        active: true,
+        sucursal: 'XXXXXXXXX'
     },
     {
         id: 4,
         name: "Giovanni Arroyo Rodriguez",
-        active: true
+        active: true,
+        sucursal: 'XXXXXXXXX'
     },
     {
         id: 5,
         name: "Eduardo Franco Mejia",
-        active: true
+        active: true,
+        sucursal: 'XXXXXXXXX'
     }
 ]
 
@@ -87,6 +92,9 @@ const Sorted = () => {
             justifyContent='center'
             flexDirection='column'
             alignItems='center'
+            height='100%'
+            padding='20px'
+            color='#fff !important'
         >
             <Text
                 fontSize='30px'
@@ -99,17 +107,17 @@ const Sorted = () => {
             <Button
                 w='300px'
                 h='70px'
-                background='#28B463'
+                background='#873600'
                 color='#fff'
                 _hover={{
-                    background: '#2ECC71',
+                    background: '#A04000',
                     color: '#fff'
                 }}
                 m='20px 0'
                 onClick={() => handleSorted()}
                 disabled={(giftsItems.length === 0) || (userItems.length === 0)}
             >
-                Comenzar
+                SUERTE
             </Button>
 
             { ((giftsItems.length === 0) || (userItems.length === 0)) && (
@@ -134,15 +142,19 @@ const Sorted = () => {
                         <Table variant='simple'>
                             <Thead>
                             <Tr>
-                                <Th isNumeric>ID</Th>
-                                <Th>Nombre</Th>
-                                <Th>Premio</Th>
+                                <Th color='#fff'  isNumeric>Consecutivo</Th>
+                                <Th color='#fff' isNumeric>ID</Th>
+                                <Th color='#fff' >Nombre</Th>
+                                <Th color='#fff' >Sucursal</Th>
+                                <Th color='#fff' >Premio</Th>
                             </Tr>
                             </Thead>
                             <Tbody>
                                 <Tr>
+                                    <Td isNumeric>{winners.length}</Td>
                                     <Td isNumeric>{currentWinner[0].id}</Td>
                                     <Td>{currentWinner[0].name}</Td>
+                                    <Td>{currentWinner[0].sucursal}</Td>
                                     <Td>{currentWinner[1].name}</Td>
                                 </Tr>
                             </Tbody>
@@ -158,8 +170,11 @@ const Sorted = () => {
                 fontWeight='600'
                 textAlign='center'
                 m='20px 0'
+                background='#F1C40F'
+                p='20px 90px'
+                borderRadius='10px'
             >
-                Ganadores
+                GANADORES
             </Text>
 
             { (winners.length === 0) && (
@@ -176,29 +191,26 @@ const Sorted = () => {
                         <Table variant='simple'>
                             <Thead>
                                 <Tr>
-                                    <Th isNumeric>ID</Th>
-                                    <Th>Nombre</Th>
-                                    <Th>Premio</Th>
+                                    <Th color='#fff'  isNumeric>Consecutivo</Th>
+                                    <Th color='#fff'  isNumeric>ID</Th>
+                                    <Th color='#fff'  >Nombre</Th>
+                                    <Th color='#fff' >Sucursal</Th>
+                                    <Th color='#fff' >Premio</Th>
                                 </Tr>
                             </Thead>
                             <Tbody>
                                 {
-                                    winners.map(item => (
+                                    winners.map((item, i) => (
                                         <Tr>
+                                            <Td isNumeric>{i+1}</Td>
                                             <Td isNumeric>{item[0].id}</Td>
                                             <Td>{item[0].name}</Td>
+                                            <Td>{item[0].sucursal}</Td>
                                             <Td>{item[1].name}</Td>
                                         </Tr>
                                     ))
                                 }
                             </Tbody>
-                            <Tfoot>
-                                <Tr>
-                                    <Th isNumeric>ID</Th>
-                                    <Th>Nombre</Th>
-                                    <Th>Premio</Th>
-                                </Tr>
-                            </Tfoot>
                         </Table>
                     </TableContainer>
                 )
