@@ -1,6 +1,8 @@
 import { Box, Image } from '@chakra-ui/react'
 import React from 'react'
 import Sorted from './Sorted'
+import logo from '../assets/logo.png'
+import esferas from '../assets/esferas_gda.png'
 
 const Home = () => {
     return (
@@ -13,7 +15,7 @@ const Home = () => {
             flexDirection='column'
         >
             <Image 
-                src='https://raw.githubusercontent.com/yoel10Spartan/system-posada/main/src/assets/logo.png' 
+                src={logo} 
                 w='300px'
                 h='335px'
                 margin='40px'    
@@ -24,7 +26,7 @@ const Home = () => {
             >
                 <Sorted />
             </Box>
-            <Image src='https://raw.githubusercontent.com/yoel10Spartan/system-posada/main/src/assets/esferas_gda.png' />
+            <Image src={esferas} />
         </Box>
     )
 }
